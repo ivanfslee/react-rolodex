@@ -6,7 +6,18 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      string: 'Hello bunghole'
+      monsters: [
+        {
+          name: 'Frank'
+        },
+        {
+          name: 'Dracula'
+        },
+        {
+          name: 'Zombie'
+        }
+      ],
+      string: 'Hello Aloha'
     };
   }
 
@@ -16,9 +27,14 @@ class App extends Component {
 
   render() {
     return (
-      <div>
-        <h1>{this.state.string}</h1>
-        <button onClick={this.clickHandler}>Change Text</button>
+      <div className='App'>
+        { 
+          this.state.monsters.map(monster => <p>{monster.name}</p>)
+        }
+        <div>
+          <span>{this.state.string}</span>
+          <button onClick={this.clickHandler}>Change State</button>
+        </div>
       </div>
     );
   }
